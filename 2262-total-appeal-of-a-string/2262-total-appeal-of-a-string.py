@@ -1,12 +1,17 @@
 class Solution(object):
-    def appealSum(self, s):
+    def uniqueLetterString(self, s):
         """
         :type s: str
         :rtype: int
         """
-        last = {}
+        index = {c: [-1, -1] for c in ascii_uppercase}
         res = 0
-        for i,c in enumerate(s):
-            last[c] = i + 1
-            res += sum(last.values())
-        return res
+        for i, c in enumerate(s):
+            k, j = index[c]
+            res += (i - j) * (j - k)
+            index[c] = [j, i]
+        for c in index:
+            k, j = index[c]
+            res += (len(s) - j) * (j - k)
+        return res 
+        
