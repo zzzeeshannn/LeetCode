@@ -10,7 +10,8 @@ class Solution:
             # We use the first string to extract the prefix, you can choose any :p 
             prefix = strs[0][:index]
             for i in range(1, len(strs)):
-                # Here we wanna check that the prefix is in the string 
+                # Here we wanna check that the prefix is in the string and the string --
+                # -- starts with the prefix
                 if not strs[i].startswith(prefix):
                     return False
             
