@@ -1,9 +1,9 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        counter = Counter(s)
-        item_list = [key for key in counter if counter[key] == 1]
-        for i, val in enumerate(s):
-            if val in item_list:
-                return i
+        character_list = [char for char, value in Counter(s).items() if value == 1]
+        
+        for index, every_char in enumerate(s): 
+            if every_char in character_list:
+                return index
         
         return -1
